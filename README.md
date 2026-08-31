@@ -1,352 +1,167 @@
-###### \# Ginger — Flappy Bird with Hand Gesture Control
+# Ginger — Flappy Bird with Hand Gesture Control
 
-###### 
+Ginger is a gesture-controlled Flappy Bird-style game developed using **Python, Pygame, and MediaPipe**.
 
-###### Ginger is a gesture-controlled Flappy Bird-style game developed with Python, Pygame, and MediaPipe.
+Instead of using a keyboard or mouse, the player controls Ginger using **hand movements captured through a camera**. The project combines computer vision with a classic arcade-style game to create an interactive and fun gaming experience.
 
-###### 
+## Project Overview
 
-###### Instead of using a keyboard or mouse, the player controls Ginger using hand movements captured through a camera. The project combines computer vision with a classic arcade-style game to create an interactive and fun gaming experience.
+The main character, **Ginger**, is a custom Flappy Bird-style character that flies through obstacles while the player controls its movement using hand gestures.
 
-###### 
+The game includes:
 
-###### \## Project Overview
+* Hand gesture-based flight control
+* Real-time hand tracking using MediaPipe
+* Animated game environment
+* Moving clouds and background elements
+* Obstacles and collision detection
+* Coin collection system
+* Score and high-score tracking
+* Increasing game speed as the score increases
+* Character skin changes during gameplay
+* Background music
+* Sound effects for different game events
+* Mute functionality
+* Game start and game-over sounds
+* Countdown effects
+* Camera and hand-tracking test programs
 
-###### 
+## Technologies Used
 
-###### The main character, Ginger, is a custom Flappy Bird-style character that flies through obstacles while the player controls its movement using hand gestures.
+* **Python** — Main programming language
+* **Pygame** — Game development, graphics, and audio
+* **MediaPipe** — Real-time hand tracking
+* **OpenCV** — Camera input and computer vision
+* **NumPy** — Numerical processing
 
-###### 
+## How It Works
 
-###### The game includes:
+The camera captures the player's hand movements in real time.
 
-###### 
+MediaPipe detects and tracks the hand landmarks. The detected hand position is then processed by the game controller and converted into movement commands for Ginger.
 
-###### \* Hand gesture-based flight control
+This allows the player to control the bird without touching the keyboard or mouse.
 
-###### \* Real-time hand tracking using MediaPipe
+## Game Features
 
-###### \* Animated game environment
+### Hand Gesture Control
 
-###### \* Moving clouds and background elements
+Ginger's movement is controlled through the player's hand position detected by the camera.
 
-###### \* Obstacles and collision detection
+### Dynamic Difficulty
 
-###### \* Coin collection system
+The game becomes faster as the player achieves a higher score. The increasing speed gradually raises the difficulty and makes longer gameplay more challenging.
 
-###### \* Score and high-score tracking
+### Character Skin Changes
 
-###### \* Increasing game speed as the score increases
+Ginger's appearance changes as the score increases, adding a visual progression system to the gameplay.
 
-###### \* Character skin changes during gameplay
+### Coins
 
-###### \* Background music
+Players can collect coins while flying through the level.
 
-###### \* Sound effects for different game events
+The game includes a separate coin counter and a dedicated coin collection sound effect. The coin count is reset when a new game starts.
 
-###### \* Mute functionality
+### Sound System
 
-###### \* Game start and game-over sounds
+The project includes background music and several sound effects for different game events:
 
-###### \* Countdown effects
+* Flap sound
+* Coin collection sound
+* Point/score sound
+* Collision sound
+* Game-over sound
+* Start sound
+* Countdown sound
+* Background music
 
-###### \* Camera and hand-tracking test programs
+A **mute option** is also available, allowing the player to turn the audio on or off during gameplay.
 
-###### 
+### Score System
 
-###### \## Technologies Used
+The game keeps track of the player's current score and stores the **high score locally**.
 
-###### 
+The high score is preserved between game sessions, allowing players to keep track of their best performance.
 
-###### \* \*\*Python\*\*
+The score also affects the game difficulty, with the game speed increasing as the score gets higher.
 
-###### \* \*\*Pygame\*\* — game development and graphics
+## Project Structure
 
-###### \* \*\*MediaPipe\*\* — real-time hand tracking
+```text
+FlappyBird_MediaPipe/
+│
+├── models/
+│   └── hand_landmarker.task
+│
+├── sounds/
+│   ├── flap.wav
+│   ├── coin.wav
+│   ├── point.wav
+│   ├── collision.wav
+│   ├── game_over.wav
+│   ├── start.wav
+│   └── countdown.wav
+│
+├── high_score.txt
+├── test_camera.py
+├── test_hand_model.py
+├── test_mediapipe.py
+├── test_pygame.py
+└── main.py
+```
 
-###### \* \*\*OpenCV\*\* — camera input and computer vision
+## Installation
 
-###### \* \*\*NumPy\*\* — numerical processing
+Clone the repository:
 
-###### 
+```bash
+git clone https://github.com/fayashi06/FlappyBird_MediaPipe.git
+```
 
-###### \## How It Works
+Navigate to the project directory:
 
-###### 
+```bash
+cd FlappyBird_MediaPipe
+```
 
-###### The camera captures the player's hand movements. MediaPipe detects and tracks the hand landmarks in real time.
+Install the required libraries:
 
-###### 
+```bash
+pip install pygame mediapipe opencv-python numpy
+```
 
-###### The detected hand position is then processed by the game controller and converted into movement commands for Ginger.
+Make sure the `hand_landmarker.task` model is placed inside the `models` folder.
 
-###### 
+## Running the Game
 
-###### This allows the player to control the bird without touching the keyboard.
+Run the main Python file:
 
-###### 
+```bash
+python main.py
+```
 
-###### \## Game Features
+Make sure your computer has a working camera, as the game uses the camera for real-time hand tracking.
 
-###### 
+## Testing
 
-###### \### Hand Gesture Control
+The project includes several test programs for checking the camera, MediaPipe hand tracking, and Pygame.
 
-###### 
+For example:
 
-###### Ginger's movement is controlled through the player's hand position detected by the camera.
+```bash
+python test_camera.py
+```
 
-###### 
+```bash
+python test_hand_model.py
+```
 
-###### \### Dynamic Difficulty
+These programs can be used to verify that the required components are working correctly before running the game.
 
-###### 
+## Goal of the Project
 
-###### The game becomes faster as the player achieves higher scores. This gradually increases the difficulty and makes longer gameplay more challenging.
+The goal of Ginger is to demonstrate how **computer vision and real-time hand gesture recognition** can be integrated into an interactive game.
 
-###### 
+By combining **MediaPipe hand tracking** with **Pygame**, Ginger transforms a traditional Flappy Bird-style game into a touch-free gaming experience.
 
-###### \### Skin Changes
-
-###### 
-
-###### Ginger's appearance changes during gameplay as the score increases, adding a visual progression system.
-
-###### 
-
-###### \### Coins
-
-###### 
-
-###### Players can collect coins while flying through the level. A separate coin sound effect is included for collection feedback.
-
-###### 
-
-###### \### Sound System
-
-###### 
-
-###### The project includes several sound effects and background audio, including:
-
-###### 
-
-###### \* Flap sound
-
-###### \* Coin collection sound
-
-###### \* Point/score sound
-
-###### \* Collision sound
-
-###### \* Game-over sound
-
-###### \* Start sound
-
-###### \* Countdown sound
-
-###### \* Background music
-
-###### 
-
-###### A mute option is also available so the player can turn the audio on or off.
-
-###### 
-
-###### \### Score System
-
-###### 
-
-###### The game keeps track of the player's score and stores the high score locally.
-
-###### 
-
-###### \## Project Structure
-
-###### 
-
-###### ```text
-
-###### FlappyBird\_MediaPipe/
-
-###### │
-
-###### ├── game.py
-
-###### ├── hand\_controller.py
-
-###### ├── hand\_tracking.py
-
-###### ├── create\_brainrot.py
-
-###### ├── create\_coin\_sound.py
-
-###### ├── create\_sounds.py
-
-###### ├── coins.txt
-
-###### ├── high\_score.txt
-
-###### │
-
-###### ├── models/
-
-###### │   └── hand\_landmarker.task
-
-###### │
-
-###### ├── sounds/
-
-###### │   ├── brainrot.wav
-
-###### │   ├── coin.wav
-
-###### │   ├── countdown.wav
-
-###### │   ├── flap.wav
-
-###### │   ├── game\_over.wav
-
-###### │   ├── hit.wav
-
-###### │   ├── point.wav
-
-###### │   └── start.wav
-
-###### │
-
-###### ├── test\_camera.py
-
-###### ├── test\_hand\_model.py
-
-###### ├── test\_mediapipe.py
-
-###### └── test\_pygame.py
-
-###### ```
-
-###### 
-
-###### \## Installation
-
-###### 
-
-###### Clone the repository:
-
-###### 
-
-###### ```bash
-
-###### git clone https://github.com/fayashi06/FlappyBird\_MediaPipe.git
-
-###### cd FlappyBird\_MediaPipe
-
-###### ```
-
-###### 
-
-###### Create and activate a virtual environment:
-
-###### 
-
-###### ```bash
-
-###### python -m venv .venv
-
-###### ```
-
-###### 
-
-###### Windows:
-
-###### 
-
-###### ```bash
-
-###### .venv\\Scripts\\activate
-
-###### ```
-
-###### 
-
-###### Install the required packages:
-
-###### 
-
-###### ```bash
-
-###### pip install pygame mediapipe opencv-python numpy
-
-###### ```
-
-###### 
-
-###### \## Running the Game
-
-###### 
-
-###### Run:
-
-###### 
-
-###### ```bash
-
-###### python game.py
-
-###### ```
-
-###### 
-
-###### Make sure your camera is available and working before starting the game.
-
-###### 
-
-###### \## Controls
-
-###### 
-
-###### The primary control method is hand movement detected through the camera.
-
-###### 
-
-###### The game also provides an in-game mute option for controlling the sound.
-
-###### 
-
-###### \## Purpose
-
-###### 
-
-###### The project was created to explore the combination of \*\*game development, computer vision, and human-computer interaction\*\*.
-
-###### 
-
-###### It demonstrates how real-time hand tracking can be integrated into a Python game to create a controller-free gaming experience.
-
-###### 
-
-###### \## Future Improvements
-
-###### 
-
-###### Possible future improvements include:
-
-###### 
-
-###### \* More character skins
-
-###### \* Additional levels
-
-###### \* More obstacle types
-
-###### \* Improved gesture recognition
-
-###### \* Online leaderboards
-
-###### \* More interactive environments
-
-###### \* Additional game modes
-
-###### 
-
-###### 
 
